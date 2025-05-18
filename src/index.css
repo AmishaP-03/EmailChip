@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+input {
+  width: 50%;
+  font-size: 2rem;
+  border-radius: 4rem;
+  padding: 1rem 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  cursor: pointer;
+  padding: 1rem;
+  border-bottom: 0.1rem solid gray;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+.suggestionList{
+  width: 50%;
+  border: 0.1rem solid black;
+  border-top: none;
+}
+
+.suggestedUser {
+  display: flex;
+  gap: 1rem;
+
+  & img {
+    width: 2rem;
+    height: 2rem;
+  }
+}
