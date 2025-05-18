@@ -34,7 +34,7 @@ function App() {
           })}</section>
         }
 
-        <input value={userInput} onChange={handleChange}/>
+        <input value={userInput} onChange={handleChange} onBlur={() => setSuggestions([])}/>
       </section>
       {suggestions.length > 0 && <section className='suggestionList'>
         <ul>
