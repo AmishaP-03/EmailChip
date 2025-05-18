@@ -34,7 +34,8 @@ function App() {
           })}</section>
         }
 
-        <input value={userInput} onChange={handleChange} onBlur={() => setSuggestions([])}/>
+        {/* Remove onBlur as it prevents the selection of an entry via onClick */}
+        <input value={userInput} onChange={handleChange}/>
       </section>
       {suggestions.length > 0 && <section className='suggestionList'>
         <ul>
