@@ -4,9 +4,11 @@ import { contactsData } from './contacts.js';
 function App() {
   const [userInput, setUserInput] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const [selectedContacts, setSelectedContacts] = useState([]);
 
   function handleClick(selectedSuggestion) {
-    setUserInput(selectedSuggestion.emailAddress);
+    setSelectedContacts((prev) => [...prev, selectedSuggestion]);
+    setUserInput('');
     setSuggestions([]);
   }
 
@@ -19,24 +21,32 @@ function App() {
   }
 
   return (
-    <section>
+    <section className='email'>
       <h1>Enter email address</h1>
-      <input value={userInput} onChange={handleChange}/>
-      {suggestions.length > 0 && <div className='suggestionList'>
+      <section className='chip-email-section'>
+        {selectedContacts.length > 0 && <section className='chips'>
+          {selectedContacts.map((selectedContact) => {
+            return (<img key={selectedContact.id} src={selectedContact.avatar} alt={selectedContact.name}></img>)
+          })}</section>
+        }
+
+        <input value={userInput} onChange={handleChange}/>
+      </section>
+      {suggestions.length > 0 && <section className='suggestionList'>
         <ul>
           {suggestions.map((suggestion) => {
             return (<li key={suggestion.id} onClick={() => {handleClick(suggestion)}}>
-              <div className='suggestedUser'>
+              <section className='suggestedUser'>
                 <img src={suggestion.avatar} alt={suggestion.name}></img>
-                <div>
+                <section>
                   <p>{suggestion.name}</p>
                   <p>{suggestion.emailAddress}</p>
-                </div>
-              </div>
+                </section>
+              </section>
             </li>);
           })}
         </ul>
-      </div>}
+      </section>}
     </section>
   );
 }

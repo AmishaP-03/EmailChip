@@ -7,7 +7,7 @@ html, body, #root {
   height: 100%;
 }
 
-section {
+.email {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -20,11 +20,26 @@ h1 {
   margin: 2rem;
 }
 
+.chip-email-section {
+  position: relative;
+}
+
+.chips {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  & img {
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem;
+  }
+}
+
 input {
-  width: 50%;
   font-size: 2rem;
   border-radius: 4rem;
-  padding: 1rem 2rem;
+  padding: 1.2rem;
 }
 
 ul {
@@ -42,7 +57,7 @@ li:last-child {
 }
 
 .suggestionList{
-  width: 50%;
+  width: 360px;
   border: 0.1rem solid black;
   border-top: none;
 }
