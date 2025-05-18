@@ -14,7 +14,11 @@ function App() {
 
   function handleChange(event) {
     const enteredValue = event.target.value;
-    const filteredContacts = contactsData.filter((contact) => contact.emailAddress.startsWith(enteredValue) || contact.name.startsWith(enteredValue));
+    const filteredContacts = contactsData.filter((contact) => 
+      !selectedContacts.some((selectedContact) => selectedContact.id === contact.id)
+      && (contact.emailAddress.startsWith(enteredValue)
+      || contact.name.startsWith(enteredValue))
+    );
 
     setUserInput(enteredValue);
     setSuggestions(filteredContacts);
